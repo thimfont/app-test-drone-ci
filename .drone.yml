@@ -1,7 +1,7 @@
 kind: pipeline
 name: default
 steps:
-  - name: hello
+  - name: test
     image: alpine
     commands:
       - echo Hello World!
