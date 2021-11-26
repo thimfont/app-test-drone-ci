@@ -1,7 +1,29 @@
 kind: pipeline
 name: default
+
 steps:
-  - name: test
+  - name: build-master-forno
     image: alpine
     commands:
-      - echo Hello World!
+      - echo Hello World Forno e Master!
+    when:
+      event:
+        - push
+        
+  - name: build-master
+    image: alpine
+    commands:
+      - echo Hello World Master!
+    when:
+      branch:
+        - master
+  
+  - name: build-forno
+    image: alpine
+    commands:
+      - echo Hello World Forno!
+    when:
+      branch:
+        - forno
+      event:
+        - push      
